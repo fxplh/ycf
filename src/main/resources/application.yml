@@ -1,0 +1,41 @@
+spring:
+  profiles:
+    active:  dev
+
+---
+
+resources:
+     static-locations:
+     classpath: /webapp
+
+spring:
+  profiles:  dev
+  datasource:
+    url:  jdbc:mysql://localhost:3306/ycf?useUnicode=true&useSSL=true&serverTimezone=UTC
+    username:  root
+    password:  root
+    driver-class-name: com.mysql.jdbc.Driver
+
+logging:
+  level:
+    com.lh.food.dao : debug
+    com.lh.foodclass.dao : debug
+    com.lh.foodRecommend.dao : debug
+    com.lh.price.dao : debug
+    com.lh.hotfood.dao : debug
+    com.lh.user.dao : debug
+
+
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+      map-underscore-to-camel-case: true
+
+
+
+server:
+   port: 80
+   session:
+    timeout: 86400
+
